@@ -5,8 +5,8 @@ import p3 from "@/assets/painel-3.jpeg.asset.json";
 import p4 from "@/assets/painel-4.jpeg.asset.json";
 import p5 from "@/assets/painel-5.jpeg.asset.json";
 
-// Número do WhatsApp (só dígitos, com DDI). Substitua pelo número real.
-export const WHATSAPP_NUMBER = "5522999999999";
+// Número do WhatsApp (só dígitos, com DDI).
+export const WHATSAPP_NUMBER = "5522981605225";
 export const whatsappLink = (msg = "Olá! Quero uma análise do Perfil da minha empresa no Google.") =>
   `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 
@@ -46,7 +46,7 @@ export const AGGREGATE_MODE: "individual" | "periodo" | "acumulado" = "individua
 export const CASES: Case[] = [
   {
     slug: "case-nova-friburgo",
-    company: "Empresa XYZ",
+    company: "Sorriso White",
     segment: "Odontologia",
     city: "Nova Friburgo",
     state: "RJ",
