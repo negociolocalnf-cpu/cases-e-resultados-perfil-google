@@ -57,7 +57,7 @@ export function CaseDashboard({ c }: { c: Case }) {
 }
 function SourceDonutWrap({ c }: { c: Case }) {
   if (!c.sources) return null;
-  return <div className="md:col-span-2 lg:col-span-1 lg:row-span-1 [&>div]:h-full"><SourceDonut c={c} /></div>;
+  return <div className="md:col-span-2 lg:col-span-3"><SourceDonut c={c} /></div>;
 }
 
 export function DataSummary({ c }: { c: Case }) {

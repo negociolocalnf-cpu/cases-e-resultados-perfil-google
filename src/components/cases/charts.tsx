@@ -50,7 +50,7 @@ export function SourceDonut({ c }: { c: Case }) {
       <p className="mt-1 text-sm text-muted-foreground">
         <span className="num text-foreground">{fmt(total)}</span> pessoas visualizaram o perfil
       </p>
-      <div className="mt-6 grid items-center gap-8 sm:grid-cols-[180px_1fr]">
+      <div className="mt-6 grid items-center gap-8 sm:grid-cols-[180px_1fr] lg:grid-cols-[220px_1fr_1fr]">
         <div className="relative mx-auto h-44 w-44">
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
@@ -64,7 +64,7 @@ export function SourceDonut({ c }: { c: Case }) {
             <span className="text-[10px] uppercase tracking-widest text-muted-foreground">views</span>
           </div>
         </div>
-        <ul className="space-y-4">
+        <ul className="grid gap-4 sm:grid-cols-2 lg:col-span-2">
           {c.sources.map((s, i) => (
             <li key={s.label} className="flex items-start gap-3">
               <span className="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full" style={{ background: SOURCE_COLORS[i % 4] }} />
