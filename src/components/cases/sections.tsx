@@ -137,7 +137,7 @@ export function Gallery({ c }: { c: Case }) {
       {open !== null && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/90 p-4 backdrop-blur" onClick={() => setOpen(null)}>
           <button className="absolute right-5 top-5 rounded-full border border-border p-2" aria-label="Fechar"><X className="h-5 w-5" /></button>
-          <img src={c.screenshots[open].src} alt={c.screenshots[open].caption} className="max-h-[90vh] max-w-full rounded-xl" />
+          <img src={c.screenshots[open]!.src} alt={c.screenshots[open]!.caption} className="max-h-[90vh] max-w-full rounded-xl" />
         </div>
       )}
     </div>

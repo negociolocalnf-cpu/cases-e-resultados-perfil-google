@@ -37,14 +37,14 @@ function CasesPage() {
   const [seg, setSeg] = useState<(typeof SEGMENTS)[number]>("Todos");
   const [period, setPeriod] = useState(0);
   const totals = aggregate(CASES);
-  const featured = CASES.find((c) => c.featured) ?? CASES[0];
+  const featured = CASES.find((c) => c.featured) ?? CASES[0]!;
 
   const filtered = useMemo(() => {
     const now = new Date();
     return CASES.filter((c) => {
       if (seg !== "Todos" && c.segment !== seg) return false;
       if (period) {
-        const [y, m] = c.periodEnd.split("-").map(Number);
+        const [y = 0, m = 0] = c.periodEnd.split("-").map(Number);
         const diff = (now.getFullYear() - y) * 12 + (now.getMonth() + 1 - m);
         if (diff > period) return false;
       }

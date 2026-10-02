@@ -30,7 +30,7 @@ export function MetricCard({ c, k }: { c: Case; k: MetricKey }) {
                 contentStyle={{ background: "var(--popover)", border: "1px solid var(--border)", borderRadius: 10, fontSize: 12 }}
                 labelStyle={{ color: "var(--muted-foreground)" }}
                 itemStyle={{ color: "var(--foreground)" }}
-                formatter={(v: number) => [`≈ ${fmt(v)}`, METRICS[k].label]}
+                formatter={(v) => [`≈ ${fmt(Number(v))}`, METRICS[k].label]}
               />
               <Area type="monotone" dataKey="v" stroke="var(--primary)" strokeWidth={2} fill={`url(#${id})`} animationDuration={1200} />
             </AreaChart>
@@ -55,7 +55,7 @@ export function SourceDonut({ c }: { c: Case }) {
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
               <Pie data={c.sources} dataKey="value" innerRadius={58} outerRadius={80} stroke="none" paddingAngle={2} startAngle={90} endAngle={-270}>
-                {c.sources.map((_, i) => <Cell key={i} fill={SOURCE_COLORS[i % 4]} />)}
+                {c.sources.map((_, i) => <Cell key={i} fill={SOURCE_COLORS[i % 4]!} />)}
               </Pie>
             </PieChart>
           </ResponsiveContainer>
