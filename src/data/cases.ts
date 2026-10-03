@@ -10,6 +10,12 @@ import b2 from "@/assets/beauty-2.jpeg.asset.json";
 import b3 from "@/assets/beauty-3.jpeg.asset.json";
 import b4 from "@/assets/beauty-4.jpeg.asset.json";
 import b5 from "@/assets/beauty-5.jpeg.asset.json";
+import n0 from "@/assets/new-face-0.jpeg.asset.json";
+import n1 from "@/assets/new-face-1.jpeg.asset.json";
+import n2 from "@/assets/new-face-2.jpeg.asset.json";
+import n3 from "@/assets/new-face-3.jpeg.asset.json";
+import n4 from "@/assets/new-face-4.jpeg.asset.json";
+import n5 from "@/assets/new-face-5.jpeg.asset.json";
 
 // Número do WhatsApp (só dígitos, com DDI).
 export const WHATSAPP_NUMBER = "5522981605225";
@@ -116,9 +122,42 @@ export const CASES: Case[] = [
       { src: b4.url, caption: "Cliques no website" },
     ],
   },
+  {
+    slug: "case-estetica-new-face",
+    company: "Estética New Face",
+    segment: "Beleza",
+    city: "Nova Friburgo",
+    state: "RJ",
+    periodLabel: "Abr/2026 → Set/2026",
+    periodEnd: "2026-09",
+    featured: false,
+    totals: { views: 3455, calls: 490, chat: 389, routes: 194, website: 56 },
+    months: ["Abr", "Mai", "Jun", "Jul", "Ago", "Set"],
+    monthlyApprox: true,
+    monthly: {
+      calls: [0, 30, 105, 118, 135, 102],
+      chat: [0, 20, 75, 90, 105, 99],
+      routes: [0, 10, 50, 57, 40, 37],
+      website: [0, 5, 13, 15, 13, 10],
+    },
+    sources: [
+      { label: "Pesquisa Google — dispositivos móveis", value: 2539 },
+      { label: "Pesquisa Google — computadores", value: 532 },
+      { label: "Google Maps — dispositivos móveis", value: 299 },
+      { label: "Google Maps — computadores", value: 85 },
+    ],
+    screenshots: [
+      { src: n5.url, caption: "Como as pessoas descobriram a empresa" },
+      { src: n0.url, caption: "Interações no Perfil da Empresa" },
+      { src: n1.url, caption: "Chamadas" },
+      { src: n2.url, caption: "Cliques no chat" },
+      { src: n3.url, caption: "Solicitações de rotas" },
+      { src: n4.url, caption: "Cliques no website" },
+    ],
+  },
 ];
 
-export const SEGMENTS: ("Todos" | Segment)[] = ["Todos", "Odontologia", "Beleza", "Saúde", "Pet", "Serviços", "Comércio", "Outros"];
+export const COMPANY_FILTERS = ["Todos", ...CASES.map((item) => item.company)] as const;
 
 export const fmt = (n: number) => n.toLocaleString("pt-BR");
 export const pct = (before?: number, after?: number) =>
