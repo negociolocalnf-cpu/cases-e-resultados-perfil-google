@@ -82,6 +82,7 @@ export const CASES: Case[] = [
       { src: p3.url, caption: "Solicitações de rotas" },
       { src: p4.url, caption: "Cliques no website" },
     ],
+  },
   {
     slug: "case-clinica-beauty",
     company: "Clínica Beauty",
