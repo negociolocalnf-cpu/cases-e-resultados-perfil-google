@@ -37,7 +37,7 @@ function CasesPage() {
   const [company, setCompany] = useState<(typeof COMPANY_FILTERS)[number]>("Todos");
   const [period, setPeriod] = useState(0);
   const totals = aggregate(CASES);
-  const featured = CASES.find((c) => c.featured) ?? CASES[0]!;
+  const featured = CASES.find((c) => c.featured) ?? CASES[0];
 
   const filtered = useMemo(() => {
     const now = new Date();
