@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { aggregate, AGGREGATE_MODE, CASES, fmt, METRICS, SEGMENTS, type MetricKey } from "@/data/cases";
+import { aggregate, AGGREGATE_MODE, CASES, COMPANY_FILTERS, fmt, METRICS, type MetricKey } from "@/data/cases";
 import { Brand, CaseDashboard, CaseMeta, DataSummary, BeforeAfter, FinalCta, Gallery, PrimaryCta, Transparency } from "@/components/cases/sections";
 
 const TITLE = "Cases de Google Meu Negócio | Resultados Reais de Empresas";
@@ -34,15 +34,15 @@ const MODE_LABEL = {
 };
 
 function CasesPage() {
-  const [seg, setSeg] = useState<(typeof SEGMENTS)[number]>("Todos");
+  const [company, setCompany] = useState<(typeof COMPANY_FILTERS)[number]>("Todos");
   const [period, setPeriod] = useState(0);
   const totals = aggregate(CASES);
-  const featured = CASES.find((c) => c.featured) ?? CASES[0]!;
+  const featured = CASES.find((c) => c.featured) ?? CASES[0];
 
   const filtered = useMemo(() => {
     const now = new Date();
     return CASES.filter((c) => {
-      if (seg !== "Todos" && c.segment !== seg) return false;
+      if (company !== "Todos" && c.company !== company) return false;
       if (period) {
         const [y = 0, m = 0] = c.periodEnd.split("-").map(Number);
         const diff = (now.getFullYear() - y) * 12 + (now.getMonth() + 1 - m);
@@ -50,7 +50,7 @@ function CasesPage() {
       }
       return true;
     });
-  }, [seg, period]);
+  }, [company, period]);
 
   return (
     <main>
@@ -79,7 +79,7 @@ function CasesPage() {
       <section className="mx-auto max-w-6xl px-5 py-20">
         <div className="flex flex-col justify-between gap-3 md:flex-row md:items-end">
           <h2 className="text-3xl font-medium tracking-tight md:text-4xl">Resultados reais no Google</h2>
-          <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">{MODE_LABEL[AGGREGATE_MODE]} · {featured.periodLabel}</span>
+          <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">{MODE_LABEL[AGGREGATE_MODE]}{featured ? ` · ${featured.periodLabel}` : ""}</span>
         </div>
         <div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-5">
           {KEYS.map((k, i) => (
@@ -121,8 +121,8 @@ function CasesPage() {
         <h2 className="text-3xl font-medium tracking-tight md:text-4xl">Cases de empresas</h2>
         <div className="mt-8 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex flex-wrap gap-2">
-            {SEGMENTS.map((s) => (
-              <button key={s} onClick={() => setSeg(s)} className={`rounded-full border px-4 py-2 text-sm transition-colors ${seg === s ? "border-primary bg-accent text-foreground" : "border-border text-muted-foreground hover:text-foreground"}`}>{s}</button>
+            {COMPANY_FILTERS.map((name) => (
+              <button key={name} onClick={() => setCompany(name)} className={`rounded-full border px-4 py-2 text-sm transition-colors ${company === name ? "border-primary bg-accent text-foreground" : "border-border text-muted-foreground hover:text-foreground"}`}>{name}</button>
             ))}
           </div>
           <select value={period} onChange={(e) => setPeriod(Number(e.target.value))} className="rounded-full border border-border bg-card px-4 py-2 text-sm">
