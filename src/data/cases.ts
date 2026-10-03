@@ -4,6 +4,12 @@ import p2 from "@/assets/painel-2.jpeg.asset.json";
 import p3 from "@/assets/painel-3.jpeg.asset.json";
 import p4 from "@/assets/painel-4.jpeg.asset.json";
 import p5 from "@/assets/painel-5.jpeg.asset.json";
+import b0 from "@/assets/beauty-0.jpeg.asset.json";
+import b1 from "@/assets/beauty-1.jpeg.asset.json";
+import b2 from "@/assets/beauty-2.jpeg.asset.json";
+import b3 from "@/assets/beauty-3.jpeg.asset.json";
+import b4 from "@/assets/beauty-4.jpeg.asset.json";
+import b5 from "@/assets/beauty-5.jpeg.asset.json";
 
 // Número do WhatsApp (só dígitos, com DDI).
 export const WHATSAPP_NUMBER = "5522981605225";
@@ -41,7 +47,7 @@ export type Case = {
 };
 
 // Como os números do bloco geral devem ser lidos.
-export const AGGREGATE_MODE: "individual" | "periodo" | "acumulado" = "individual";
+export const AGGREGATE_MODE: "individual" | "periodo" | "acumulado" = "acumulado";
 
 export const CASES: Case[] = [
   {
@@ -75,6 +81,38 @@ export const CASES: Case[] = [
       { src: p2.url, caption: "Cliques no chat" },
       { src: p3.url, caption: "Solicitações de rotas" },
       { src: p4.url, caption: "Cliques no website" },
+    ],
+  {
+    slug: "case-clinica-beauty",
+    company: "Clínica Beauty",
+    segment: "Beleza",
+    city: "Nova Friburgo",
+    state: "RJ",
+    periodLabel: "Abr/2026 → Set/2026",
+    periodEnd: "2026-09",
+    featured: false,
+    totals: { views: 2089, calls: 22, chat: 78, routes: 271, website: 38 },
+    months: ["Abr", "Mai", "Jun", "Jul", "Ago", "Set"],
+    monthlyApprox: true,
+    monthly: {
+      calls: [4, 2, 3, 4, 4, 5],
+      chat: [10, 12, 12, 13, 22, 9],
+      routes: [50, 34, 46, 52, 32, 57],
+      website: [6, 8, 4, 9, 4, 7],
+    },
+    sources: [
+      { label: "Pesquisa Google — dispositivos móveis", value: 1177 },
+      { label: "Google Maps — dispositivos móveis", value: 470 },
+      { label: "Pesquisa Google — computadores", value: 277 },
+      { label: "Google Maps — computadores", value: 165 },
+    ],
+    screenshots: [
+      { src: b5.url, caption: "Como as pessoas descobriram a empresa" },
+      { src: b0.url, caption: "Interações no Perfil da Empresa" },
+      { src: b1.url, caption: "Chamadas" },
+      { src: b2.url, caption: "Cliques no chat" },
+      { src: b3.url, caption: "Solicitações de rotas" },
+      { src: b4.url, caption: "Cliques no website" },
     ],
   },
 ];
