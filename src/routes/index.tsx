@@ -79,7 +79,7 @@ function CasesPage() {
       <section className="mx-auto max-w-6xl px-5 py-20">
         <div className="flex flex-col justify-between gap-3 md:flex-row md:items-end">
           <h2 className="text-3xl font-medium tracking-tight md:text-4xl">Resultados reais no Google</h2>
-          <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">{MODE_LABEL[AGGREGATE_MODE]} · {featured.periodLabel}</span>
+          <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">{MODE_LABEL[AGGREGATE_MODE]}{featured ? ` · ${featured.periodLabel}` : ""}</span>
         </div>
         <div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-5">
           {KEYS.map((k, i) => (
