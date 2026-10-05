@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
+import gestorCassio from "@/assets/gestor-cassio.png.asset.json";
 import { aggregate, AGGREGATE_MODE, CASES, COMPANY_FILTERS, fmt, METRICS, type MetricKey } from "@/data/cases";
 import { Brand, CaseDashboard, CaseMeta, DataSummary, BeforeAfter, FinalCta, Gallery, PrimaryCta, Transparency } from "@/components/cases/sections";
 
@@ -77,7 +78,20 @@ function CasesPage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-5 py-20">
-        <div className="flex flex-col justify-between gap-3 md:flex-row md:items-end">
+        <div className="panel relative overflow-hidden">
+          <div className="glow-bg pointer-events-none absolute inset-0 opacity-60" />
+          <div className="relative flex flex-col items-center gap-8 p-8 text-center md:flex-row md:p-12 md:text-left">
+            <img src={gestorCassio.url} alt="Gestor Cássio Domingos" className="h-40 w-40 shrink-0 rounded-full border-2 border-border object-cover object-top shadow-glow md:h-48 md:w-48" />
+            <div>
+              <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary">Seu especialista</p>
+              <h3 className="mt-3 text-3xl font-medium tracking-tight md:text-4xl">Gestor Cássio Domingos</h3>
+              <p className="mt-3 max-w-2xl text-muted-foreground">
+                Especialista em Perfil da Empresa no Google, ajudando empresas locais a serem encontradas por mais clientes todos os dias.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="mt-20 flex flex-col justify-between gap-3 md:flex-row md:items-end">
           <h2 className="text-3xl font-medium tracking-tight md:text-4xl">Resultados reais no Google</h2>
           <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">{MODE_LABEL[AGGREGATE_MODE]}{featured ? ` · ${featured.periodLabel}` : ""}</span>
         </div>
