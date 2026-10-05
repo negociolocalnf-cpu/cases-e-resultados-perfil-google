@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Check, MapPin, X } from "lucide-react";
 import { fmt, METRICS, pct, whatsappLink, type Case, type MetricKey } from "@/data/cases";
-import { MetricCard, SourceDonut } from "./charts";
+import { MetricCard, SourceBars } from "./charts";
 
 const KEYS: MetricKey[] = ["views", "calls", "chat", "routes", "website"];
 
@@ -57,7 +57,7 @@ export function CaseDashboard({ c }: { c: Case }) {
 }
 function SourceDonutWrap({ c }: { c: Case }) {
   if (!c.sources) return null;
-  return <div className="md:col-span-2 lg:col-span-3"><SourceDonut c={c} /></div>;
+  return <div className="md:col-span-2 lg:col-span-3"><SourceBars c={c} /></div>;
 }
 
 export function DataSummary({ c }: { c: Case }) {
