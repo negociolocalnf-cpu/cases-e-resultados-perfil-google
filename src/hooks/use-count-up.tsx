@@ -63,7 +63,7 @@ export function useCountUp(value: number) {
 }
 
 /** Number that counts itself up into place, formatted in pt-BR. */
-export function CountUp({ value, prefix, className }: { value: number; prefix?: string; className?: string }) {
+export function CountUp({ value, prefix, className }: { value: number; prefix?: string | undefined; className?: string }) {
   const { ref, n } = useCountUp(value);
   return (
     <span ref={ref} className={className}>

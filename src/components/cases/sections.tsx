@@ -45,7 +45,7 @@ export function CaseDashboard({ c }: { c: Case }) {
     <div className="space-y-5">
       <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {KEYS.map((k) => <MetricCard key={k} c={c} k={k} />)}
-        <SourceDonutWrap c={c} />
+        <SourceBarsWrap c={c} />
       </div>
       {c.monthlyApprox && (
         <p className="text-xs text-muted-foreground">
@@ -55,7 +55,7 @@ export function CaseDashboard({ c }: { c: Case }) {
     </div>
   );
 }
-function SourceDonutWrap({ c }: { c: Case }) {
+function SourceBarsWrap({ c }: { c: Case }) {
   if (!c.sources) return null;
   return <div className="md:col-span-2 lg:col-span-3"><SourceBars c={c} /></div>;
 }
