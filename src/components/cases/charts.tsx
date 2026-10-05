@@ -11,10 +11,11 @@ export function MetricCard({ c, k }: { c: Case; k: MetricKey }) {
   const data = series && c.months ? c.months.map((m, i) => ({ m, v: series[i] })) : null;
   const id = `g-${c.slug}-${k}`;
   return (
-    <div className="panel flex flex-col p-6">
-      <span className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">{METRICS[k].label}</span>
-      <CountUp value={total} className="num mt-3 block text-5xl font-medium" />
-      <span className="mt-2 text-sm text-muted-foreground">{METRICS[k].desc}</span>
+    <div className={`panel relative flex flex-col overflow-hidden p-6 ${data ? "" : "justify-center"}`}>
+      {!data && <div className="glow-bg pointer-events-none absolute inset-0 opacity-70" />}
+      <span className="relative text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">{METRICS[k].label}</span>
+      <CountUp value={total} className={`num-display relative mt-3 block font-medium leading-none ${data ? "text-5xl" : "text-6xl md:text-7xl"}`} />
+      <span className="relative mt-3 text-sm text-muted-foreground">{METRICS[k].desc}</span>
       {data && (
         <div className="mt-6 h-32 w-full">
           <ResponsiveContainer width="100%" height="100%">
@@ -51,7 +52,7 @@ export function SourceBars({ c }: { c: Case }) {
     <div className="panel p-6 md:p-8">
       <h3 className="text-lg font-medium">Como as pessoas descobriram a empresa</h3>
       <p className="mt-1 text-sm text-muted-foreground">
-        <CountUp value={total} className="num text-foreground" /> pessoas visualizaram o perfil
+        <CountUp value={total} className="num-display text-foreground" /> pessoas visualizaram o perfil
       </p>
       <div ref={ref} className="mt-7 space-y-5">
         {c.sources.map((s, i) => {
@@ -61,7 +62,7 @@ export function SourceBars({ c }: { c: Case }) {
             <div key={s.label}>
               <div className="flex items-baseline justify-between gap-4">
                 <span className="text-sm text-muted-foreground">{s.label}</span>
-                <span className="num shrink-0 text-base">
+                <span className="num-display shrink-0 text-base">
                   <CountUp value={s.value} /> <span className="text-muted-foreground">· {share}%</span>
                 </span>
               </div>

@@ -101,7 +101,7 @@ function CasesPage() {
         <div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-5">
           {KEYS.map((k, i) => (
             <div key={k} className={`panel p-6 ${i === 0 ? "col-span-2 lg:col-span-1" : ""}`}>
-              <CountUp value={totals[k]} prefix="+" className="num block text-4xl font-medium md:text-5xl" />
+              <CountUp value={totals[k]} prefix="+" className="num-display block text-[clamp(1.9rem,3.3vw,2.75rem)] font-medium leading-none" />
               <div className="mt-2 text-sm text-muted-foreground">{METRICS[k].label}</div>
             </div>
           ))}
@@ -124,7 +124,7 @@ function CasesPage() {
               <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border">
                 {(["views", "calls", "chat", "routes", "website"] as MetricKey[]).map((k, i) => (
                   <div key={k} className={`bg-card p-5 ${i === 0 ? "col-span-2" : ""}`}>
-                    <CountUp value={featured.totals[k] ?? 0} prefix={i === 0 ? "+" : undefined} className={`num block font-medium ${i === 0 ? "text-6xl text-primary" : "text-3xl"}`} />
+                    <CountUp value={featured.totals[k] ?? 0} prefix={i === 0 ? "+" : undefined} className={`num-display block font-medium leading-none ${i === 0 ? "text-5xl text-primary" : "text-3xl"}`} />
                     <div className="mt-1 text-sm text-muted-foreground">{METRICS[k].label}</div>
                   </div>
                 ))}
