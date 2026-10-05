@@ -81,10 +81,9 @@ function CasesPage() {
         <div className="panel relative overflow-hidden">
           <div className="glow-bg pointer-events-none absolute inset-0 opacity-60" />
           <div className="relative flex flex-col items-center gap-8 p-8 text-center md:flex-row md:p-12 md:text-left">
-            <img src={gestorCassio.url} alt="Gestor Cássio Domingos" className="h-40 w-40 shrink-0 rounded-full border-2 border-border object-cover object-top shadow-glow md:h-48 md:w-48" />
+            <img src={gestorCassio.url} alt="Gestor Cássio Domingos" className="h-56 w-56 shrink-0 rounded-full border-4 border-primary/25 object-cover object-top shadow-glow md:h-80 md:w-80" />
             <div>
-              <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary">Seu especialista</p>
-              <h3 className="mt-3 text-3xl font-medium tracking-tight md:text-4xl">Gestor Cássio Domingos</h3>
+              <h3 className="text-4xl font-medium tracking-tight md:text-5xl">Gestor Cássio Domingos</h3>
               <p className="mt-3 max-w-2xl text-muted-foreground">
                 Especialista em Perfil da Empresa no Google, ajudando empresas locais a serem encontradas por mais clientes todos os dias.
               </p>
