@@ -80,11 +80,14 @@ function CasesPage() {
       <section className="mx-auto max-w-6xl px-5 py-20">
         <div className="panel relative overflow-hidden">
           <div className="glow-bg pointer-events-none absolute inset-0 opacity-60" />
-          <div className="relative flex flex-col items-center gap-8 p-8 text-center md:flex-row md:p-12 md:text-left">
-            <img src={gestorCassio.url} alt="Gestor Cássio Domingos" className="h-56 w-56 shrink-0 rounded-full border-4 border-primary/25 object-cover object-top shadow-glow md:h-80 md:w-80" />
-            <div>
-              <h3 className="text-4xl font-medium tracking-tight md:text-5xl">Gestor Cássio Domingos</h3>
-              <p className="mt-3 max-w-2xl text-muted-foreground">
+          <div className="relative flex items-center gap-3 p-4 text-left min-[360px]:gap-4 min-[360px]:p-5 sm:gap-8 sm:p-8 md:p-12">
+            <img src={gestorCassio.url} alt="Gestor Cássio Domingos" className="h-24 w-24 shrink-0 rounded-full border-[3px] border-primary/25 object-cover object-top shadow-glow min-[360px]:h-28 min-[360px]:w-28 sm:h-40 sm:w-40 md:h-80 md:w-80" />
+            <div className="min-w-0">
+              <h3 className="text-base font-medium leading-tight tracking-tight min-[360px]:text-lg sm:text-3xl md:text-5xl">Gestor Cássio Domingos</h3>
+              <p className="mt-1.5 text-xs leading-snug text-muted-foreground min-[360px]:text-sm sm:hidden">
+                Especialista em Perfil da Empresa no Google.
+              </p>
+              <p className="mt-3 hidden max-w-2xl text-base leading-relaxed text-muted-foreground sm:block">
                 Especialista em Perfil da Empresa no Google, ajudando empresas locais a serem encontradas por mais clientes todos os dias.
               </p>
             </div>
