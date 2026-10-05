@@ -98,6 +98,7 @@
 }
 @utility shadow-glow { box-shadow: var(--shadow-glow); }
 @utility num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; letter-spacing: -0.04em; }
+@utility num-display { font-family: var(--font-sans); font-variant-numeric: tabular-nums; letter-spacing: -0.035em; }
 @utility grid-lines {
   background-image:
     linear-gradient(oklch(1 0 0 / 4%) 1px, transparent 1px),
